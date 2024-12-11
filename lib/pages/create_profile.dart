@@ -68,7 +68,7 @@ class _CreateProfilePageState extends State<CreateProfilePage> {
         child: LayoutBuilder(
           builder: (context, constraints) {
             return Scrollbar(
-              thumbVisibility: false, // Otomatik görünürlük
+              thumbVisibility: false,
               child: SingleChildScrollView(
                 child: ConstrainedBox(
                   constraints: BoxConstraints(
@@ -91,16 +91,20 @@ class _CreateProfilePageState extends State<CreateProfilePage> {
                           ),
                           SizedBox(height: 16),
                           DropdownButtonFormField<String>(
+                            dropdownColor: Colors.black,
                             value: selectedGender,
                             items: ['Erkek', 'Kadın']
                                 .map((gender) => DropdownMenuItem(
                                       value: gender,
-                                      child: Text(gender),
+                                      child: Text(
+                                        gender,
+                                        style: TextStyle(color: Colors.white),
+                                      ),
                                     ))
                                 .toList(),
                             decoration: InputDecoration(
                               filled: true,
-                              fillColor: Colors.black.withOpacity(0.4),
+                              fillColor: Colors.white.withOpacity(0.3),
                               hintText: 'Cinsiyet',
                               hintStyle: TextStyle(color: Colors.grey[400]),
                               prefixIcon: Icon(Icons.transgender,
@@ -118,10 +122,11 @@ class _CreateProfilePageState extends State<CreateProfilePage> {
                           ),
                           SizedBox(height: 16),
                           TextField(
+                            style: TextStyle(color: Colors.white),
                             controller: ageController,
                             decoration: InputDecoration(
                               filled: true,
-                              fillColor: Colors.black.withOpacity(0.4),
+                              fillColor: Colors.white.withOpacity(0.4),
                               hintText: 'Yaş',
                               hintStyle: TextStyle(color: Colors.grey[400]),
                               prefixIcon: Icon(Icons.calendar_today,
@@ -134,16 +139,16 @@ class _CreateProfilePageState extends State<CreateProfilePage> {
                             keyboardType: TextInputType.number,
                             inputFormatters: [
                               FilteringTextInputFormatter.digitsOnly,
-                              LengthLimitingTextInputFormatter(
-                                  2), // Max 2 karakter
+                              LengthLimitingTextInputFormatter(2),
                             ],
                           ),
                           SizedBox(height: 16),
                           TextField(
+                            style: TextStyle(color: Colors.white),
                             controller: heightController,
                             decoration: InputDecoration(
                               filled: true,
-                              fillColor: Colors.black.withOpacity(0.4),
+                              fillColor: Colors.white.withOpacity(0.4),
                               hintText: 'Boy (cm)',
                               hintStyle: TextStyle(color: Colors.grey[400]),
                               prefixIcon: Icon(Icons.height,
@@ -160,10 +165,11 @@ class _CreateProfilePageState extends State<CreateProfilePage> {
                           ),
                           SizedBox(height: 16),
                           TextField(
+                            style: TextStyle(color: Colors.white),
                             controller: weightController,
                             decoration: InputDecoration(
                               filled: true,
-                              fillColor: Colors.black.withOpacity(0.4),
+                              fillColor: Colors.white.withOpacity(0.4),
                               hintText: 'Kilogram (kg)',
                               hintStyle: TextStyle(color: Colors.grey[400]),
                               prefixIcon: Icon(Icons.monitor_weight,
@@ -179,7 +185,6 @@ class _CreateProfilePageState extends State<CreateProfilePage> {
                             ],
                           ),
                           SizedBox(height: 16),
-                          // Avatar Picker (Image from gallery)
                           GestureDetector(
                             onTap: pickImage,
                             child: Stack(
@@ -189,7 +194,7 @@ class _CreateProfilePageState extends State<CreateProfilePage> {
                                   height: 150,
                                   width: 150,
                                   decoration: BoxDecoration(
-                                    color: Colors.black.withOpacity(0.4),
+                                    color: Colors.white.withOpacity(0.4),
                                     border: Border.all(color: Colors.grey),
                                     borderRadius: BorderRadius.circular(10),
                                     image: avatarImage != null
@@ -207,7 +212,7 @@ class _CreateProfilePageState extends State<CreateProfilePage> {
                                         )
                                       : null,
                                 ),
-                                if (avatarImage == null) // Yalnızca avatar yüklenmemişse yazıyı göster
+                                if (avatarImage == null)
                                   Positioned(
                                     top: 15,
                                     child: Text(
@@ -222,7 +227,6 @@ class _CreateProfilePageState extends State<CreateProfilePage> {
                               ],
                             ),
                           ),
-
                           SizedBox(height: 32),
                           CustomButton(
                             text: "Kaydet",

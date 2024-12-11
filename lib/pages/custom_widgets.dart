@@ -51,10 +51,10 @@ class CustomTextField extends StatelessWidget {
       obscureText: obscureText,
       keyboardType: keyboardType,
       inputFormatters: inputFormatters,
-      style: const TextStyle(color: Color(0xFF0C454E)),
+      style: const TextStyle(color: Colors.white),
       decoration: InputDecoration(
         filled: true,
-        fillColor: Colors.black.withOpacity(0.4),
+        fillColor: Colors.white.withOpacity(0.3),
         hintText: hintText,
         hintStyle: TextStyle(color: Colors.grey[400]),
         prefixIcon: Icon(icon, color: const Color(0xFF0C454E)),
