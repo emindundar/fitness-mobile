@@ -3,6 +3,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:fitness_mobile/pages/register_page.dart';
 import 'package:fitness_mobile/pages/login_page.dart';
 import 'package:fitness_mobile/pages/create_profile.dart';
+import 'package:fitness_mobile/pages/goal_page.dart';
+
 
 
 void main() async {
@@ -18,6 +20,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       initialRoute: '/register',
       routes: {
+        '/goal_page': (context) => GoalPage(),
         '/register': (context) => RegisterPage(),
         '/login': (context) => LoginPage(),
         '/home': (context) => HomePage(),

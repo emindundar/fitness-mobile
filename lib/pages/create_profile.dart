@@ -6,6 +6,8 @@ import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 
+import 'goal_page.dart';
+
 class CreateProfilePage extends StatefulWidget {
   @override
   _CreateProfilePageState createState() => _CreateProfilePageState();
@@ -27,6 +29,7 @@ class _CreateProfilePageState extends State<CreateProfilePage> {
 
       final String uid = user.uid;
 
+      // Firebase'e profil bilgilerini kaydet
       await FirebaseFirestore.instance.collection('users').doc(uid).set({
         'fullName': fullNameController.text,
         'gender': selectedGender,
@@ -35,6 +38,12 @@ class _CreateProfilePageState extends State<CreateProfilePage> {
         'weight': int.parse(weightController.text),
         'avatarUrl': avatarImage?.path ?? '',
       });
+
+      // Kaydetme işlemi tamamlandıktan sonra GoalPage sayfasına yönlendir
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => GoalPage()),
+      );
     } catch (e) {
       print("Hata: $e");
     }
